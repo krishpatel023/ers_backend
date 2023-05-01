@@ -12,7 +12,7 @@ import auth from './routes/auth.js';
 import statesData from './routes/statesData.js'
 
 const app = express()
-const PORT = 8000
+const PORT = 8000 || process.env.PORT
 
 
 //FOR .ENV
