@@ -32,7 +32,7 @@ dotenv.config();
 //MongoDB CONNECTION
 const connect = async () => {
     try {
-        await mongoose.connect('mongodb+srv://admin:admin@db-1.49bybpl.mongodb.net/?retryWrites=true&w=majority');
+        await mongoose.connect(process.env.mongoDB);
         console.log("CONNECTED --- MongoDB");
     } catch (error) {
         console.log(error);
