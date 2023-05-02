@@ -22,7 +22,8 @@ app.use(express.json())
 //CORS
 // app.use(cors())
 app.use(cors({
-    origin: 'http://localhost:3000',
+    // origin: 'http://localhost:3000',
+    origin: 'https://ers-seven.vercel.app',
     credentials: true,
 }));
 app.use(cookieParser())
