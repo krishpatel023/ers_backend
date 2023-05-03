@@ -19,6 +19,8 @@ const PORT = 8000 || process.env.PORT
 // dotenv.config();
 //Used as we can't send direct json data to the server. so we need this middleware.
 app.use(express.json())
+app.use(cookieParser())
+dotenv.config();
 //CORS
 // app.use(cors())
 app.use(cors({
@@ -27,9 +29,9 @@ app.use(cors({
     // origin: 'https://ers-seven.vercel.app',
     credentials: true,
 }));
-app.use(cookieParser())
+
 // res.header( "Access-Control-Allow-Origin", '*' );
-dotenv.config();
+
 
 //MongoDB CONNECTION
 const connect = async () => {

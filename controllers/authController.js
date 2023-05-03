@@ -40,7 +40,8 @@ export const Login = async(req,res,next)=>{
             res.cookie("access_token", token , {
                 httpOnly:true,
                 sameSite: 'none', 
-                secure: true
+                domain:".onrender.com" ,
+                path:"/"
             }).status(200).json({...otherDetails})
             //res.status(200).json(user);
             //This will send whole user data along with password we prevented that
