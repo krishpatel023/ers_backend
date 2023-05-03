@@ -52,7 +52,7 @@ export const Login = async(req,res,next)=>{
 
 export const Logout = (req,res)=>{
     try{
-        res.clearCookie('access_token',{domain:"ersbackend.onrender.com" , path:"/"}).status(200).json({logout:true});
+        res.clearCookie('access_token',{domain:".onrender.com" , path:"/"}).status(200).json({logout:true});
     }catch(error){
         res.status(402).send(error)
     }
