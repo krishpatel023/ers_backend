@@ -37,12 +37,12 @@ export const Login = async(req,res,next)=>{
             // console.log("DOC :",user._doc)
             const { password,isAdmin, ...otherDetails} = user._doc;
             // console.log("OTHER : ", {...otherDetails})
-            res.cookie("access_token", token , {
-                httpOnly:true,
-                sameSite: 'none', 
-                secure: true
-            }).status(200).json({...otherDetails})
-            //res.status(200).json(user);
+            // res.cookie("access_token", token , {
+            //     httpOnly:true,
+            //     sameSite: 'none', 
+            //     secure: true
+            // }).status(200).json(token)
+            res.status(200).send(token);
             //This will send whole user data along with password we prevented that
         }
     } catch(error){
@@ -52,7 +52,8 @@ export const Login = async(req,res,next)=>{
 
 export const Logout = (req,res)=>{
     try{
-        res.clearCookie('access_token',{domain:".onrender.com" , path:"/"}).status(200).json({logout:true});
+        // res.clearCookie('access_token').status(200).json({logout:true});
+        res.status(200).send("LOGOUT VALIDATION ERROR")
     }catch(error){
         res.status(402).send(error)
     }
@@ -60,9 +61,9 @@ export const Logout = (req,res)=>{
 
 export const validateStatus = (req,res)=>{
     try{
-        const token = req.cookies;
-        console.log(token);
-        res.status(200).send(token)
+        // const token = req.cookies;
+        // console.log(token)
+        res.status(200).send("SOME VALIDATION REFERENCE")
     }
     catch(error){
         res.status(401).json({status:false})
