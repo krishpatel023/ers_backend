@@ -37,12 +37,10 @@ export const Login = async(req,res,next)=>{
             // console.log("DOC :",user._doc)
             const { password,isAdmin, ...otherDetails} = user._doc;
             // console.log("OTHER : ", {...otherDetails})
-            // res.cookie("access_token", token , {
-            //     httpOnly:true,
-            //     sameSite: 'none', 
-            //     secure: true
-            // }).status(200).json(token)
-            res.status(200).send(token);
+            res.cookie("access_token", token , {
+                httpOnly:true
+            }).status(200).json(token)
+            // res.status(200).send(token);
             //This will send whole user data along with password we prevented that
         }
     } catch(error){
@@ -52,8 +50,8 @@ export const Login = async(req,res,next)=>{
 
 export const Logout = (req,res)=>{
     try{
-        // res.clearCookie('access_token').status(200).json({logout:true});
-        res.status(200).send("LOGOUT VALIDATION ERROR")
+        res.clearCookie('access_token').status(200).json({logout:true});
+        // res.status(200).send("LOGOUT VALIDATION ERROR")
     }catch(error){
         res.status(402).send(error)
     }
