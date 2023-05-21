@@ -1,5 +1,5 @@
 import express from 'express'
-import { changePublished, createFeedback, deleteFeedback, getAllFeedbacks, getFeedbackBy, getFeedbackOf, getPublishedFeedback, updateFeedback } from '../controllers/feedbackController.js'
+import { changePublished, createFeedback, createReply, deleteFeedback, getAllFeedbacks, getFeedbackBy, getFeedbackOf, getPublishedFeedback, getReplies, updateFeedback } from '../controllers/feedbackController.js'
 import { verifyAdmin, verifyUser } from '../utils/verifyToken.js'
 
 const router = express.Router()
@@ -20,5 +20,8 @@ router.get('/feedbackOf/:id', getFeedbackOf)
 router.get('/publishedFeedback/:value', getPublishedFeedback)
 //GET ALL
 router.get('/', getAllFeedbacks)
-
+//GET REPLIES OF
+router.get('/feedbackReply/:prevFeedbackId',getReplies)
+//CREATE REPLY
+router.post('/feedbackReply',createReply)
 export default router

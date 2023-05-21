@@ -85,3 +85,24 @@ export const getAllFeedbacks = async (req,res)=>{
         res.status(400).send(error)
     }
 }
+
+export const getReplies = async (req,res)=>{
+    try{
+        const allFeedbacks = await Feedback.find({ replyOf : req.params.prevFeedbackId})
+        res.status(200).send(allFeedbacks)
+    }catch(error){
+        res.status(400).send(error)
+    }
+}
+export const createReply = async (req,res)=>{
+    try{
+        const newFeedback = new Feedback({
+            ...req.body
+        })
+        await newFeedback.save();
+        res.status(200).send("New Feedback Created!")
+
+    }catch(error){
+        res.status(400).send(error)
+    }
+}

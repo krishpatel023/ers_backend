@@ -7,12 +7,10 @@ const FeedbackSchema = new mongoose.Schema(
       required: true,
     },
     rating: {
-      type:String,
-      required: true
+      type:String
     },
     feedbackOf: {
-      type: String,
-      required: true,
+      type: String
     },
     feedbackBy: {
         type: String,
@@ -21,6 +19,9 @@ const FeedbackSchema = new mongoose.Schema(
     isPublished: {
         type: Boolean,
         default: false
+    },
+    replyOf: {
+      type: String
     }
   },
   { timestamps: true }
