@@ -31,10 +31,6 @@ const HospitalSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // category: {
-    //   type:String,
-    //   required:true,
-    // },
     materials: [
 
     ],
