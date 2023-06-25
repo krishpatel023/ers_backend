@@ -14,6 +14,8 @@ router.delete("/:id", verifyAdmin, deleteHospital)
 router.get("/:id", verifyUser,getHospital)
 //GET ALL
 router.get("/", verifyUser,getAllHospitals)
+//GET HOSP BY HOSP ADMIN
+router.get("/hosp/:id",getHospital)
 //GET SHELTER
 // router.get("/getShelter", getShelter)
 

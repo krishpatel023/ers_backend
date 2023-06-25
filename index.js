@@ -10,7 +10,7 @@ import feedbacks from './routes/feedbacks.js';
 import covidData from './routes/covidData.js';
 import auth from './routes/auth.js';
 import statesData from './routes/statesData.js'
-
+import hospitalAuth from './routes/hospitalAuth.js';
 const app = express()
 const PORT = 8000 || process.env.PORT
 
@@ -53,6 +53,7 @@ app.use("/api/hospitals", hospitals)
 app.use("/api/feedbacks", feedbacks)
 app.use("/api/covidData", covidData)
 app.use("/api/statesData", statesData)
+app.use("/api/hospitalAuth", hospitalAuth)
 
 
 //BACKEND START

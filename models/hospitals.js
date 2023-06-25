@@ -31,9 +31,10 @@ const HospitalSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    materials: [
-
-    ],
+    beds:{
+      type:Number,
+      required: true,
+    },
     ratings: {
         type: Number,
         required: true
